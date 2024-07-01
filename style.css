@@ -112,7 +112,7 @@ h6 {
   width: 3rem;
   height: 3rem;
   position: absolute;
-  left: 10%;
+  left: -10%;
   top: 80%;
   background-color: var(--clr-sun);
   border-radius: 50%;
@@ -156,7 +156,7 @@ h6 {
 @keyframes sunRise {
   0% {
     top: 80%;
-    left: 10%;
+    left: -10%;
     box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
       0 0 5em 1em var(--clr-sun);
     filter: brightness(60%) blur(0.1em);
