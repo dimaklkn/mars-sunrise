@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap");
+
+:root {
+  /* colors */
+  --clr-darknight-sky: hsl(180, 3%, 6%);
+  --clr-night-sky: hsl(231, 11%, 13%);
+  --clr-morning-sky: hsl(210, 12%, 44%);
+  --clr-day-sky: hsl(29, 59%, 71%);
+  --clr-sun: hsl(150, 100%, 100%);
+  --clr-main: #bb3e03;
+  /* typography */
+  --ff-title: "Rubik Mono One", monospace;
+  --ff-body: "Golos Text", sans-serif;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-700: 700;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-900: 4rem;
+  /* Hero animation duration */
+  --hero-ad: 20s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--ff-body);
+  background: var(--clr-day-sky);
+  color: var(--clr-sun);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+/* SUNRISE ON MARS HERO SECTION */
+
+.sunrise-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--clr-bg-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.mars-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900%; /* Adjust based on your preference */
+  background-image: linear-gradient(
+    to bottom,
+    var(--clr-darknight-sky),
+    var(--clr-night-sky),
+    var(--clr-morning-sky),
+    var(--clr-day-sky)
+  );
+  animation: changeSkyColor var(--hero-ad) linear forwards;
+}
+
+.sun {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 10%;
+  top: 80%;
+  background-color: var(--clr-sun);
+  border-radius: 50%;
+  box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
+    0 0 20em 5em var(--clr-sun);
+  filter: brightness(60%) blur(0.1em);
+  animation: sunRise var(--hero-ad) ease-in-out forwards;
+}
+
+.mars-land {
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  bottom: 0;
+  background-image: url("./images/mars-land.png");
+  filter: brightness(1%);
+  animation: fromDarkToLight var(--hero-ad) ease-in-out forwards;
+}
+
+.hero__title {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  color: var(--clr-sun);
+  opacity: 0.7;
+  font-family: var(--ff-title);
+  font-size: 2rem;
+  filter: brightness(1%);
+  animation: fromDarkToLight var(--hero-ad) ease-in-out forwards;
+}
+
+.attribution {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2%;
+  animation: fromDarkToLight var(--hero-ad) ease-in-out forwards;
+}
+
+/* Animations */
+@keyframes sunRise {
+  0% {
+    top: 80%;
+    left: 10%;
+    box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
+      0 0 5em 1em var(--clr-sun);
+    filter: brightness(60%) blur(0.1em);
+  }
+  100% {
+    top: 20%;
+    left: 70%;
+    box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
+      0 0 20em 5em var(--clr-sun);
+    filter: brightness(100%) blur(0.1em);
+  }
+}
+
+@keyframes changeSkyColor {
+  0% {
+    top: 0;
+    box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
+      0 0 10em 1em var(--clr-sun);
+  }
+  100% {
+    top: -800%;
+    box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
+      0 0 25em 7em var(--clr-sun);
+  }
+}
+
+@keyframes fromDarkToLight {
+  0% {
+    filter: brightness(1%);
+  }
+  60% {
+    filter: brightness(20%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
