@@ -159,14 +159,14 @@ h6 {
     top: 80%;
     left: -10%;
     box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
-      0 0 5em 1em var(--clr-sun);
+      0 0 2em 0.5em var(--clr-sun);
     filter: brightness(60%) blur(0.1em);
   }
   100% {
     top: 20%;
     left: 70%;
     box-shadow: 0 0 1em 0 var(--clr-sun), 0 0 2em 0 var(--clr-sun),
-      0 0 20em 5em var(--clr-sun);
+      0 0 5em 1em var(--clr-sun);
     filter: brightness(100%) blur(0.1em);
   }
 }
